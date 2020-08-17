@@ -10,7 +10,6 @@ const addNotes = (title,body) =>{
     const notes = loadNotes()
     var duplicateNote = []
     duplicateNote.push(notes.find((note) => note.title === title))
-    console.log(duplicateNote)
     if(duplicateNote.length!=0){
         notes.push({
             title: title, 
@@ -22,10 +21,6 @@ const addNotes = (title,body) =>{
     else {
         console.log("Note title taken")
     }
-    // notes.push({
-    //     title: title, 
-    //     body: body
-    // })
 }
 const removeNote = (title) =>{
     const notes = loadNotes()
