@@ -10,30 +10,26 @@ const addNotes = (title,body) =>{
     const notes = loadNotes()
     var duplicateNote = []
     duplicateNote.push(notes.find((note) => note.title === title))
-    if(!duplicateNote.length){
+    console.log(duplicateNote)
+    if(duplicateNote.length!=0){
         notes.push({
             title: title, 
             body: body
         })
-    
         saveNotes(notes)
         console.log("New Note added")
     }
     else {
         console.log("Note title taken")
     }
-    notes.push({
-        title: title, 
-        body: body
-    })
-
-    saveNotes(notes)
+    // notes.push({
+    //     title: title, 
+    //     body: body
+    // })
 }
 const removeNote = (title) =>{
     const notes = loadNotes()
     const notesToKeep = notes.filter((note) => note.title !== title)
-
-    saveNotes(notesToKeep)
     if(notesToKeep.length === notes.length){
         console.log(chalk.red.inverse("No Note Found!"))
 
@@ -41,6 +37,8 @@ const removeNote = (title) =>{
     else{
         console.log(chalk.green.inverse("Note removed!"))
     }
+
+    saveNotes(notesToKeep)
    
 }
 
